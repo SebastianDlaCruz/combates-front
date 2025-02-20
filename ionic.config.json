@@ -1,0 +1,7 @@
+{
+  "name": "cambates-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
