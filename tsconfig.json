@@ -18,8 +18,22 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "useDefineForClassFields": false
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "useDefineForClassFields": false,
+    "paths": {
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@feature/*": [
+        "./src/app/feature/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

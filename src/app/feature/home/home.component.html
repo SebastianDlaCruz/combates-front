@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+@for ( boxer of boxers; track $index) {
+<p>{{boxer.name}}</p>
+}@empty {
+<p>sin Boxeadores</p>
+}

@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./shared/components/tab-menu/tab-menu.routes').then(m => m.routes)
+    component: HomeComponent,
   },
-
-
 ];
