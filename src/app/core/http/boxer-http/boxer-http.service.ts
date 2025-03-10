@@ -11,15 +11,22 @@ import { Observable } from 'rxjs';
 export class BoxerHttpService implements IBoxer {
 
   private http = inject(HttpClient);
+  private routerBase = '/boxer'
 
   getState(id: string): ResponseRequest<Boxer> {
     throw new Error('Method not implemented.');
   }
 
+  /**
+   * Retorno todos los boxeadores. Si se le ingresa los parametros page y pageSize retornara la paginacion de los boxeadores
+   * @param page
+   * @param pageSize
+   * @returns Observable<ResponseRequest<Boxer[]>>
+   */
   getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
 
     if (page && pageSize) {
-      return this.http.get<ResponseRequest<T>>('/boxer', {
+      return this.http.get<ResponseRequest<T>>(this.routerBase, {
         params: {
           page,
           pageSize
@@ -27,27 +34,19 @@ export class BoxerHttpService implements IBoxer {
       });
     }
 
-    return this.http.get<ResponseRequest<T>>('/boxer');
+    return this.http.get<ResponseRequest<T>>(this.routerBase);
   }
 
   create<T>(data: T): Observable<ResponseRequest<void>> {
-    return this.http.post<ResponseRequest<void>>('/boxer', data);
+    return this.http.post<ResponseRequest<void>>(this.routerBase, data);
   }
 
   update<T>(id: string, data: T): Observable<ResponseRequest<void>> {
-    return this.http.patch<ResponseRequest<void>>('/boxer', data, {
-      params: {
-        id
-      }
-    })
+    return this.http.patch<ResponseRequest<void>>(`${this.routerBase}/${id}`, data)
   }
 
   delete(id: string): Observable<ResponseRequest<void>> {
-    return this.http.delete<ResponseRequest<void>>(`/boxer`, {
-      params: {
-        id
-      }
-    });
+    return this.http.delete<ResponseRequest<void>>(`${this.routerBase}/${id}`);
   }
 
 }

@@ -1,5 +1,5 @@
 export interface Boxer {
-  id: string;
+  id?: string;
   name: string;
   id_school: number;
   age: number;

@@ -8,3 +8,11 @@ export interface ResponseRequest<T> {
   error?: any;
   pagination?: Pagination<T>;
 }
+
+export interface Config<T> {
+  statusCode?: number;
+  message?: string;
+  error?: any;
+  data?: T;
+  pagination?: Pagination<T>;
+}

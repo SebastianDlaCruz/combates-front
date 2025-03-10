@@ -1,0 +1,68 @@
+@use '../../../../../theme/variables.scss' as *;
+
+.item {
+  position: relative;
+  height: 239px;
+  width: clamp(371px, 100vw, 1400px);
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: max(185px, 56vw);
+    inset-block: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    clip-path: polygon(0px 0%, 94% 0px, 78% 100%, 0 100%);
+    background-color: $black;
+  }
+
+  &::before {
+    inset-inline-end: 0;
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
+    background-color: $color-primary;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: $padding-inline;
+
+    &__container {
+      display: flex;
+      justify-content: space-around;
+      width: 187px;
+    }
+  }
+
+  & section,
+  & footer {
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+
+    font-size: clamp(12px, 21vw, 19px);
+  }
+
+  & .info-fight {
+    --size: max(97px, 20vw);
+
+    position: absolute;
+    height: var(--size);
+    width: var(--size);
+    inset-block: 20%;
+    inset-inline: 38%;
+    border-radius: 50%;
+    background-color: #101010;
+    z-index: 1;
+  }
+
+}
+
+.name-boxer {
+  font-size: $font-primary;
+}
