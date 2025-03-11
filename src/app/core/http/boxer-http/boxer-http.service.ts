@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { IBoxer } from '@core/interfaces/boxer.interface';
-import { Boxer } from '@core/models/boxer.model';
 import { ResponseRequest } from '@core/models/response-request.model';
 import { Observable } from 'rxjs';
 
@@ -13,8 +12,8 @@ export class BoxerHttpService implements IBoxer {
   private http = inject(HttpClient);
   private routerBase = '/boxer'
 
-  getState(id: string): ResponseRequest<Boxer> {
-    throw new Error('Method not implemented.');
+  updateState(id: string, state: { state: number }): Observable<ResponseRequest<void>> {
+    return this.http.put<ResponseRequest<void>>(`${this.routerBase}/${id}`, state);
   }
 
   /**
@@ -37,14 +36,31 @@ export class BoxerHttpService implements IBoxer {
     return this.http.get<ResponseRequest<T>>(this.routerBase);
   }
 
+
+  /**
+   * Crea a el boxeador
+   * @param data
+   * @returns Observable<ResponseRequest<void>>
+   */
+
   create<T>(data: T): Observable<ResponseRequest<void>> {
     return this.http.post<ResponseRequest<void>>(this.routerBase, data);
   }
 
+  /**
+   * Actuliza los datos del boxeador. Requiere de un id y los datos a actulizar
+   * @param id
+   * @param data
+   * @returns Observable<ResponseRequest<void>>
+   */
   update<T>(id: string, data: T): Observable<ResponseRequest<void>> {
     return this.http.patch<ResponseRequest<void>>(`${this.routerBase}/${id}`, data)
   }
-
+  /**
+   * Elimina al boxeador a travez de su id
+   * @param id
+   * @returns Observable<ResponseRequest<void>>
+   */
   delete(id: string): Observable<ResponseRequest<void>> {
     return this.http.delete<ResponseRequest<void>>(`${this.routerBase}/${id}`);
   }

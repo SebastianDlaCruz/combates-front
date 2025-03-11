@@ -251,10 +251,16 @@ describe('BoxerHttpService', () => {
       weight: 21.2,
     };
 
-    const mockResponse = getStateError<void>({ statusCode: 400 });
+    const mockResponse = {
+      error: {
+        age: {
+          'required_error': 'La edad  es requerida'
+        }
+      }
+    };
 
     service.update('1', mockBody).subscribe({
-      next: (res) => {
+      error: (res) => {
         expect(res).toEqual(mockResponse);
       }
     });
@@ -266,6 +272,43 @@ describe('BoxerHttpService', () => {
 
   });
 
+  it('should delete boxer', () => {
 
+    const mockResponse = getStateSuccess<void>();
+
+    service.delete('1').subscribe({
+      next: (res) => {
+        expect(res).toEqual(mockResponse);
+      }
+    });
+
+    const req = httpTestingController.expectOne('/boxer/1');
+    expect(req.request.method).toBe('DELETE');
+
+    req.flush(mockResponse);
+  });
+
+  it('should update state boxer by id', () => {
+
+    const mockResponse = getStateSuccess<void>();
+
+    const mockBody = {
+      state: 1
+    }
+
+    service.updateState('1', mockBody).subscribe({
+      next: (res) => {
+        expect(res).toEqual(mockResponse);
+      }
+    });
+
+    const req = httpTestingController.expectOne('/boxer/1');
+
+    expect(req.request.method).toBe('PUT');
+    expect(req.request.body).toEqual(mockBody);
+
+    req.flush(mockResponse);
+
+  })
 
 });
