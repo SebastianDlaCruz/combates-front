@@ -1,0 +1,23 @@
+.vs,
+.button {
+  display: flex;
+}
+
+.button {
+  justify-content: center;
+}
+
+ion-button {
+  --background: #171717ea;
+  --background-hover: #3C3B3B;
+  --background-activated: #3C3B3B;
+  --background-focused: #3C3B3B;
+
+  --color: var(--ion-white);
+}
+
+.container-boxers {
+  display: flex;
+  flex-direction: column;
+  min-height: 311px;
+}

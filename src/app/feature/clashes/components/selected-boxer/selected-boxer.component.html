@@ -1,0 +1,28 @@
+@if(selectBoxer){
+
+<div class="container">
+  <strong>Boxeador </strong>
+  <ion-button (click)="delete()" class="delete">
+    <ion-icon name="close-outline" class="icon"></ion-icon>
+  </ion-button>
+</div>
+
+<ion-list>
+  <ion-item lines="none">
+    <ion-label>Nombre: {{selectBoxer.name}}</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Edad: {{selectBoxer.age}}</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Peleas: {{selectBoxer.fights}}</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Detalles: {{selectBoxer.details}}</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Categoría :{{name}} </ion-label>
+  </ion-item>
+</ion-list>
+
+}

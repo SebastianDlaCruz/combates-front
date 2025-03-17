@@ -18,6 +18,7 @@ export class FightsHttpService implements IFights {
 
   getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
 
+
     if (page && pageSize) {
       return this.http.get<ResponseRequest<T>>(`${this.urlBase}`, {
         params: {

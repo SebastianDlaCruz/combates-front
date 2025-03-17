@@ -107,7 +107,9 @@ describe('FightsHttpService', () => {
   });
 
   it('should create', () => {
+
     const mockResponse = getStateSuccess({ statusCode: 201 });
+
     const bodyMock: Fights = {
       id: 1,
       id_boxer_one: '1',
@@ -121,12 +123,15 @@ describe('FightsHttpService', () => {
 
     service.create<Fights>(bodyMock);
     const req = httpTestingController.expectOne('/clashes');
+
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toBe(bodyMock);
+
     req.flush(mockResponse);
   });
 
   it('should update', () => {
+
     const mockResponse = getStateSuccess();
     const bodyMock: Fights = {
       id: 1,
@@ -140,9 +145,12 @@ describe('FightsHttpService', () => {
     };
 
     service.update<Fights>(1, bodyMock);
+
     const req = httpTestingController.expectOne('/clashes');
+
     expect(req.request.method).toBe('PATCH');
     expect(req.request.body).toEqual(bodyMock);
+
     req.flush(mockResponse);
   });
 

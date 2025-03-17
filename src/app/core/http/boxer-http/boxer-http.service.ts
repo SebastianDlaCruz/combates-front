@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class BoxerHttpService implements IBoxer {
 
+  updateCorner(id: string, body: { corner: string }): Observable<ResponseRequest<void>> {
+    return this.http.put<ResponseRequest<void>>(`${this.routerBase}/corner/${id}`, body);
+  }
+
   private http = inject(HttpClient);
   private routerBase = '/boxer'
 
@@ -22,8 +26,8 @@ export class BoxerHttpService implements IBoxer {
    * @param pageSize
    * @returns Observable<ResponseRequest<Boxer[]>>
    */
-  getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
 
+  getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
     if (page && pageSize) {
       return this.http.get<ResponseRequest<T>>(this.routerBase, {
         params: {
@@ -35,6 +39,15 @@ export class BoxerHttpService implements IBoxer {
 
     return this.http.get<ResponseRequest<T>>(this.routerBase);
   }
+
+
+  getBoxerByName<T>(nameBoxer: string): Observable<ResponseRequest<T>> {
+    return this.http.get<ResponseRequest<T>>(this.routerBase, {
+      params: {
+        nameBoxer
+      }
+    });
+  };
 
 
   /**

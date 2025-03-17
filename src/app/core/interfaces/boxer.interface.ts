@@ -3,5 +3,7 @@ import { Observable } from "rxjs";
 import { ICrud } from "./crud.interface";
 
 export interface IBoxer extends ICrud {
-  updateState(id: string, state: { state: number }): Observable<ResponseRequest<void>>
+  getBoxerByName<T>(nameBox: string): Observable<ResponseRequest<T>>;
+  updateState(id: string, state: { state: number }): Observable<ResponseRequest<void>>;
+  updateCorner(id: string, corner: { corner: string }): Observable<ResponseRequest<void>>;
 }

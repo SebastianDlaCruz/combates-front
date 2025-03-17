@@ -1,0 +1,19 @@
+@if(boxers.length > 0){
+<ion-list class="list">
+  @for (boxer of boxers; track boxer.id) {
+  <ion-item>
+    <ion-label>
+      <ion-button (click)="onClick(boxer)">
+        <div class="button-boxer">
+          <span>Nombre:{{ boxer.name }}</span>
+          <span>Edad:{{ boxer.age }}</span>
+          <span>Peleas:{{ boxer.fights }}</span>
+          <span>Detalles:{{ boxer.details }}</span>
+          <span>Peso:{{ boxer.weight }}</span>
+        </div>
+      </ion-button>
+    </ion-label>
+  </ion-item>
+  }
+</ion-list>
+}

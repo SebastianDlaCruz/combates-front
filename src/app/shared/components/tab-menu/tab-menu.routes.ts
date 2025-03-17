@@ -13,6 +13,14 @@ export const routes: Routes = [
       {
         path: 'clashes',
         loadComponent: () => import('../../../feature/clashes/clashes.component').then((m) => m.ClashesComponent)
+      },
+      {
+        path: 'boxers',
+        loadComponent: () => import('../../../feature/boxers/boxers.component').then((m) => m.BoxersComponent)
+      },
+      {
+        path: 'boxers/create',
+        loadComponent: () => import('../../../feature/boxers/views/create/create.component').then((m) => m.CreateComponent)
       }
     ]
   },
