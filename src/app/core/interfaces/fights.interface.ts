@@ -4,5 +4,6 @@ import { Observable } from "rxjs";
 import { ICreate, IDelete, IGetAll, IUpdate } from "./crud.interface";
 
 export interface IFights extends ICreate<Fights>, IUpdate<Fights>, IGetAll<Fights[]>, IDelete {
-  updateState(id: number, state: { state: number }): Observable<ResponseRequest<void>>
+  updateState(id: number, state: { state: number }): Observable<ResponseRequest<void>>;
+  getFights(id: number): Observable<ResponseRequest<Fights>>;
 }

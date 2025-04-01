@@ -4,7 +4,6 @@ import { CategoryHttpService } from '@core/http/category-http/category-http.serv
 import { FightsHttpService } from '@core/http/fights-http/fights-http.service';
 import { Boxer } from '@core/models/boxer.model';
 import { Category } from '@core/models/category.model';
-import { Fights } from '@core/models/fights.model';
 import { SearchBoxerService } from '@core/services/search-boxer/search-boxer.service';
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonSearchbar, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { ListOfBoxersComponent } from './components/list-of-boxers/list-of-boxers.component';
@@ -135,14 +134,14 @@ export class ClashesComponent implements OnInit, OnDestroy {
   onSubmit() {
 
     if (this.form.valid) {
-      this.fightsHttp.create<Fights>(this.form.value as Fights).subscribe({
+      /* this.fightsHttp.create<Fights>(this.form.value as Fights).subscribe({
         next: (res) => {
           console.log(res);
         },
         error: (err) => {
           console.log(err);
         }
-      })
+      }) */
     }
 
   }

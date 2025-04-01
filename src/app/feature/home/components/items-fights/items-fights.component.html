@@ -17,13 +17,14 @@
     </div>
 
   </header>
-
+  @if (fight) {
   <div class="info-fight">
     <strong>VS</strong>
-    <span>Round: {{fight?.rounds}}</span>
-    <span>{{fight?.id_type_clashes}}</span>
+    <span>Round: {{fight.rounds}}</span>
+    <span> <app-state-fights [id]="fight.id_state" /> </span>
 
   </div>
+  }
 
   <section>
 
@@ -51,10 +52,12 @@
   <footer>
 
     @if(boxerOne){
+
     <ul>
-      <li>Entrenador: {{boxerOne.id_coach}}</li>
-      <li>Escuela:{{boxerOne.id_school}}</li>
+      <li>Entrenador: <app-coach [id]="boxerOne.id_coach" /> </li>
+      <li>Escuela: <app-school [id]="boxerOne.id_school" /> </li>
     </ul>
+
     }@else {
     <p>Sin Boxeador</p>
     }

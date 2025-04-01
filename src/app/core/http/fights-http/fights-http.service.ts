@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { IFights } from '@core/interfaces/fights.interface';
+import { Fights } from '@core/models/fights.model';
 import { ResponseRequest } from '@core/models/response-request.model';
 import { Observable } from 'rxjs';
 
@@ -9,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class FightsHttpService implements IFights {
 
+
   private http = inject(HttpClient);
   private urlBase = '/clashes';
 
@@ -16,11 +18,11 @@ export class FightsHttpService implements IFights {
     return this.http.put<ResponseRequest<void>>(`${this.urlBase}/${id}`, state);
   };
 
-  getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
+  getAll(page?: string, pageSize?: string): Observable<ResponseRequest<Fights[]>> {
 
 
     if (page && pageSize) {
-      return this.http.get<ResponseRequest<T>>(`${this.urlBase}`, {
+      return this.http.get<ResponseRequest<Fights[]>>(`${this.urlBase}`, {
         params: {
           page,
           pageSize
@@ -28,14 +30,14 @@ export class FightsHttpService implements IFights {
       });
     };
 
-    return this.http.get<ResponseRequest<T>>(`${this.urlBase}`);
+    return this.http.get<ResponseRequest<Fights[]>>(`${this.urlBase}`);
   };
 
-  create<T>(data: T): Observable<ResponseRequest<void>> {
+  create(data: Fights): Observable<ResponseRequest<void>> {
     return this.http.post<ResponseRequest<void>>(`${this.urlBase}`, data);
   };
 
-  update<T>(id: number, data: T): Observable<ResponseRequest<void>> {
+  update(id: number, data: Fights): Observable<ResponseRequest<void>> {
     return this.http.patch<ResponseRequest<void>>(`${this.urlBase}/${id}`, data);
   }
 
@@ -43,5 +45,9 @@ export class FightsHttpService implements IFights {
     return this.http.delete<ResponseRequest<void>>(`${this.urlBase}/${id}`);
   };
 
+  getFights(id: number): Observable<ResponseRequest<Fights>> {
+    return this.http.get<ResponseRequest<Fights>>(`${this.urlBase}/${id}`);
+  }
 
 }
+

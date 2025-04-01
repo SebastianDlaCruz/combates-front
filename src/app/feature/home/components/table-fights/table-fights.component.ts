@@ -18,7 +18,7 @@ export class TableFightsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fightsHttp.getAll<Fights[]>().subscribe({
+    this.fightsHttp.getAll().subscribe({
       next: (res) => {
         this.fights = res.data ?? [];
       }

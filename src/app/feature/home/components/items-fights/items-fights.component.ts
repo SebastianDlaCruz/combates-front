@@ -2,6 +2,10 @@ import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { Boxer } from '@core/models/boxer.model';
 import { Fights } from '@core/models/fights.model';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
+import { CoachComponent } from '@shared/components/coach/coach.component';
+import { SchoolComponent } from '@shared/components/school/school.component';
+import { StateBoxerComponent } from '@shared/components/state-boxer/state-boxer.component';
+import { StateFightsComponent } from '@shared/components/state-fights/state-fights.component';
 import { addIcons } from 'ionicons';
 import { personAdd, settingsSharp } from 'ionicons/icons';
 import { AdapterParticipantsService } from './services/adapter-participants/adapter-participants.service';
@@ -10,17 +14,18 @@ import { AdapterParticipantsService } from './services/adapter-participants/adap
   templateUrl: './items-fights.component.html',
   styleUrls: ['./items-fights.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton]
+  imports: [IonIcon, IonButton, StateBoxerComponent, StateFightsComponent, SchoolComponent, CoachComponent]
 })
 export class ItemsFightsComponent implements OnChanges {
 
   private adapterParticipants = inject(AdapterParticipantsService);
 
+
   @Input() fight: Fights | null = null;
 
   boxerOne: Boxer | null = null;
   boxerTwo: Boxer | null = null;
-
+  state = "";
   constructor() {
     addIcons({ personAdd, settingsSharp });
   }
@@ -40,6 +45,7 @@ export class ItemsFightsComponent implements OnChanges {
           }
         }
       })
+
 
     }
 

@@ -2,8 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BoxerHttpService } from '@core/http/boxer-http/boxer-http.service';
 import { FightsHttpService } from '@core/http/fights-http/fights-http.service';
-import { Fights } from '@core/models/fights.model';
-import { forkJoin, switchMap } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 interface UpdateCorner {
   idOne: string;
@@ -34,24 +33,6 @@ export class AdapterSubmitService {
 
   create(form: FormGroup) {
 
-    return this.saveCorner({
-      idOne: form.get('id_boxer_one')?.value,
-      cornerOne: form.get('cornerBoxerOne')?.value,
-      idTwo: form.get('id_boxer_two')?.value,
-      cornerTwo: form.get('cornerBoxerTwo')?.value
-    }).pipe(
-
-      switchMap(() => {
-
-        /* form.get('cornerBoxerOne')?.disable();
-        form.get('cornerBoxerTwo')?.disable(); */
-        form.removeControl('cornerBoxerOne');
-        form.removeControl('cornerBoxerTwo');
-        form.removeControl('id_boxer_three')
-
-        return this.fightsHttp.create<Fights>(form.value)
-      })
-    )
 
   }
 
