@@ -10,11 +10,11 @@
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+
     <ion-item lines="none">
       <ion-input label="Numero de pelea" type="number" label-placement="floating" fill="outline"
-        formControlName="number_clashes" placeholder="Enter text"></ion-input>
+        formControlName="number" placeholder="Enter text"></ion-input>
     </ion-item>
-
 
     <ion-item lines="none">
       <ion-select label="Tipo de pelea" label-placement="floating" fill="solid" formControlName="id_type_clashes">
@@ -25,21 +25,24 @@
     </ion-item>
 
     <ion-item lines="none">
-      <ion-input label="Rounds" label-placement="floating" fill="outline" placeholder="Enter text"
+      <ion-input type="number" label="Rounds" label-placement="floating" fill="outline" placeholder="Enter text"
         formControlName="rounds"></ion-input>
     </ion-item>
 
     <ion-item lines="none">
+
       <ion-select label="Tipo de categoría" label-placement="floating" fill="solid" formControlName="id_category">
-        <ion-select-option [value]="1">Exhibición</ion-select-option>
-        <ion-select-option [value]="2">Amarte</ion-select-option>
-        <ion-select-option [value]="3">Profesional</ion-select-option>
+        @for (category of categories; track category.id) {
+        <ion-select-option [value]="category.id">{{category.name}}</ion-select-option>
+
+        }
       </ion-select>
+
     </ion-item>
 
     <ion-item class="vs" lines="none">
 
-      <ion-content class="container-boxers">
+      <!--       <ion-content class="container-boxers">
 
         <ion-searchbar [debounce]="1000" (ionInput)="searchInputBoxerOne($event)"></ion-searchbar>
 
@@ -64,10 +67,12 @@
         }
 
       </ion-content>
+ -->
 
-      <span>vs</span>
-
-
+      <!-- <ion-button>Agregar boxeador</ion-button> -->
+      <!--       <span>vs</span>
+ -->
+      <!--
       <ion-content class="container-boxers">
 
         <ion-searchbar #searchOne [debounce]="1000" (ionInput)="searchInputBoxerTwo($event)"></ion-searchbar>
@@ -94,8 +99,7 @@
         }
 
 
-      </ion-content>
-
+      </ion-content> -->
 
     </ion-item>
 

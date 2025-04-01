@@ -48,7 +48,7 @@ export class AdapterSubmitService {
         form.removeControl('cornerBoxerOne');
         form.removeControl('cornerBoxerTwo');
         form.removeControl('id_boxer_three')
-        console.log(form.value);
+
         return this.fightsHttp.create<Fights>(form.value)
       })
     )

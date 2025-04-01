@@ -7,12 +7,9 @@ export interface FightsResponse {
 
 export interface Fights {
   id: number;
-  number_clashes: number;
+  number: number;
   id_type_clashes: number;
   rounds: number;
   id_category: number;
-  id_boxer_one: string;
-  id_boxer_two: string;
-  id_boxer_tree?: string;
   id_state: number;
 }

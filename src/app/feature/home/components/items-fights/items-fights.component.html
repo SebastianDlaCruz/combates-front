@@ -2,13 +2,17 @@
 
   <header class="item-header">
 
-    <h4>Pelea numero:1</h4>
+    <h4>Pelea numero:{{fight?.number}}</h4>
 
     <div class="item-header__container">
-      <strong>Exhibición</strong>
+      <strong>{{fight?.id_type_clashes}}</strong>
       <div>
-        <button>1</button>
-        <button>2</button>
+        <ion-button>
+          <ion-icon name="settings-sharp" class="icon"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon name="person-add" class="icon"></ion-icon>
+        </ion-button>
       </div>
     </div>
 
@@ -16,37 +20,58 @@
 
   <div class="info-fight">
     <strong>VS</strong>
-    <span>Round: 2</span>
-    <span>Proceso</span>
+    <span>Round: {{fight?.rounds}}</span>
+    <span>{{fight?.id_type_clashes}}</span>
 
   </div>
 
   <section>
 
     <div>
-      <h3 class="name-boxer">Sebastian de la cruz</h3>
-      <strong class="corners">Esquina: Roja</strong>
+      @if(boxerOne){
+      <h3 class="name-boxer">{{boxerOne.name}}</h3>
+      <strong class="corners">Esquina: {{boxerOne.corner}}</strong>
+      }@else {
+      <p>Sin Boxeador</p>
+      }
     </div>
 
+    @if(boxerTwo){
     <div>
       <h3 class="name-boxer">Franco Pini</h3>
       <strong class="corners">Esquina: Azul</strong>
     </div>
+    }@else {
+    <p>Sin Boxeador</p>
+    }
 
   </section>
 
+
   <footer>
+
+    @if(boxerOne){
     <ul>
-      <li>Entrenador:Tomas Rojas</li>
-      <li>Escuela:Team Rojas</li>
+      <li>Entrenador: {{boxerOne.id_coach}}</li>
+      <li>Escuela:{{boxerOne.id_school}}</li>
     </ul>
+    }@else {
+    <p>Sin Boxeador</p>
+    }
+
+    @if(boxerTwo){
 
     <ul>
-      <li>Entrenador:Chino maidana</li>
-      <li>Escuela:Team Mainada</li>
+      <li>Entrenador:{{boxerTwo.id_coach}}</li>
+      <li>Escuela: {{boxerTwo.id_school}}</li>
     </ul>
+    }@else {
+    <p>Sin Boxeador</p>
+    }
 
 
   </footer>
+
+
 
 </article>

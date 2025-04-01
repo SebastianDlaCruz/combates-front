@@ -20,7 +20,7 @@ import { home, personOutline } from 'ionicons/icons';
     IonTabButton,
     IonTabs,
     IonLabel,
-    IonImg]
+    IonImg,]
 })
 export class TabMenuComponent implements OnInit {
 

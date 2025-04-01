@@ -1,6 +1,6 @@
 .item {
   position: relative;
-  height: 139px;
+  height: 154px;
   width: 400px;
 
   &::after,
@@ -86,4 +86,8 @@
 
 ul {
   font-size: 9px;
+}
+
+.icon {
+  color: white;
 }

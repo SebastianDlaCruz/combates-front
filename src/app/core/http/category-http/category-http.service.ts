@@ -19,13 +19,14 @@ export class CategoryHttpService implements ICategory {
     return this.http.get<ResponseRequest<Category>>(`${this.url}/${id}`);
   }
 
-  getAll<T>(page?: string, pageSize?: string): Observable<ResponseRequest<T>> {
+  getAll(): Observable<ResponseRequest<Category[]>> {
+    return this.http.get<ResponseRequest<Category[]>>(`${this.url}`)
+  }
+
+  create(data: Category): Observable<ResponseRequest<void>> {
     throw new Error('Method not implemented.');
   }
-  create<T>(data: T): Observable<ResponseRequest<void>> {
-    throw new Error('Method not implemented.');
-  }
-  update<T>(id: string | number, data: T): Observable<ResponseRequest<void>> {
+  update(id: string | number, data: Category): Observable<ResponseRequest<void>> {
     throw new Error('Method not implemented.');
   }
   delete(id: string | number): Observable<ResponseRequest<void>> {

@@ -1,36 +1,17 @@
-<ion-list>
+<ion-list class="list">
   <!-- The reorder gesture is disabled by default, enable it to drag and drop items -->
   <!-- Casting $event to $any is a temporary fix for this bug https://github.com/ionic-team/ionic-framework/issues/24245 -->
   <ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
 
+    @for (item of fights; track item.id) {
+
     <ion-reorder>
-      <ion-item>
-        <app-items-fights />
+      <ion-item lines="none">
+        <app-items-fights [fight]="item" />
       </ion-item>
     </ion-reorder>
 
-    <ion-reorder>
-      <ion-item>
-        <ion-label> Item 2 </ion-label>
-      </ion-item>
-    </ion-reorder>
+    }
 
-    <ion-reorder>
-      <ion-item>
-        <ion-label> Item 3 </ion-label>
-      </ion-item>
-    </ion-reorder>
-
-    <ion-reorder>
-      <ion-item>
-        <ion-label> Item 4 </ion-label>
-      </ion-item>
-    </ion-reorder>
-
-    <ion-reorder>
-      <ion-item>
-        <ion-label> Item 5 </ion-label>
-      </ion-item>
-    </ion-reorder>
   </ion-reorder-group>
 </ion-list>

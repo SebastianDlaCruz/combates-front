@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FightsHttpService } from '@core/http/fights-http/fights-http.service';
+import { Fights } from '@core/models/fights.model';
 import { IonItem, IonLabel, IonList, IonReorder, IonReorderGroup, ItemReorderEventDetail } from '@ionic/angular/standalone';
 import { ItemsFightsComponent } from '../items-fights/items-fights.component';
 
@@ -11,8 +13,17 @@ import { ItemsFightsComponent } from '../items-fights/items-fights.component';
 })
 export class TableFightsComponent implements OnInit {
 
+  private fightsHttp = inject(FightsHttpService);
+  fights: Fights[] = [];
 
-  ngOnInit() { }
+
+  ngOnInit() {
+    this.fightsHttp.getAll<Fights[]>().subscribe({
+      next: (res) => {
+        this.fights = res.data ?? [];
+      }
+    })
+  }
 
   handleReorder(event: CustomEvent<ItemReorderEventDetail>) {
 
