@@ -8,5 +8,6 @@ export const urlBaseInterceptor: HttpInterceptorFn = (req, next) => {
   req = req.clone({
     url: `${URL_BASE}${req.url}`
   });
+
   return next(req);
 };

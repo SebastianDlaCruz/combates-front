@@ -1,0 +1,13 @@
+<header>
+  <button (click)="onActiveNav()">
+    <ng-icon [svg]="featherMoreVerticalIcon"></ng-icon>
+  </button>
+  <div>
+    administrados
+  </div>
+</header>
+
+<div>
+  <app-nav-bar-admin [active]="activeNav()" (close)="onCloseNav()" />
+  <router-outlet></router-outlet>
+</div>

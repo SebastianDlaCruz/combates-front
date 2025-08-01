@@ -1,0 +1,14 @@
+form{
+  display:grid;
+  grid-template-areas:
+  "number number";
+  width: 100vw;
+  gap: 1rem;
+  align-items: center;
+  padding-inline: var(--padding-inline);
+}
+
+
+.number{
+  grid-area: number;
+}

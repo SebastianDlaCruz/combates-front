@@ -1,0 +1,53 @@
+div{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  height: 100%;
+
+  & > .error{
+   color: var(--invalid);
+  }
+}
+
+
+label{
+  font-weight: 400;
+}
+
+input{
+  height: 59px;
+  width: 100%;
+  padding-inline: 12px;
+  border-radius: 2px;
+  border: 0.6px solid #282828;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 400;
+  color: #000;
+  background-color: #b5b5b5;
+
+  &::placeholder{
+    font-size: 20px;
+    color: #000;
+  }
+
+  &:focus{
+    border: none;
+    outline: 3px solid rgb(122, 2, 58);
+  }
+
+  &.invalid-input{
+    border: none;
+    outline: 2px solid var(--invalid);
+    color: var(--invalid);
+  }
+
+}
+
+.icon{
+  position: absolute;
+  inset-block: 3rem;
+  right: 4%;
+}

@@ -1,0 +1,3 @@
+@for (item of imgs; track item.id) {
+<img [src]="item.src" [alt]="item.alt" [class.img-active]="countID === item.id" />
+}

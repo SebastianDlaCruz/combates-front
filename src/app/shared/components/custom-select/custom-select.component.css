@@ -1,0 +1,64 @@
+.container-select{
+  position:relative;
+  overflow: hidden;
+}
+
+.container-select-visible{
+  overflow: visible;
+}
+
+
+.container-input{
+  position: relative;
+  height: 59px;
+  width: 100%;
+  padding: 0 8px;
+  border: 0.6px solid #282828;
+  border-radius: 2px;
+  background-color: #b5b5b5;
+}
+
+
+.icon{
+  position: absolute;
+  inset-inline-end: 14px;
+  inset-block: 32%;
+  border-radius: 2px;
+  background-color: #282828;
+}
+
+
+.list-option{
+  position: absolute;
+  inset-inline: 0;
+  margin: 0;
+  inset-block-start: 0;
+  /* transition: transform 1s ease; */
+  transform: translateY(0);
+  visibility: hidden;
+  background-color: #b5b5b5;
+  color: #282828;
+}
+
+
+.list-option-active{
+  visibility: visible;
+  transform: translateY(79%);
+
+}
+
+
+.option{
+ height: 59px;
+ width: 100%;
+ line-height: 59px;
+ text-align: left;
+ &:hover{
+  background-color: #434141a1;
+ }
+}
+
+span{
+  line-height: 59px;
+  color: #282828;
+}

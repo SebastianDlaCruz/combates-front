@@ -1,0 +1,40 @@
+.container-countdown{
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.container-countdown-hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.container-regressive p , .container-regressive strong{
+  font-size: clamp(.9rem, calc(.8rem + 1vw), 1.4rem);
+}
+
+
+h1{
+  margin: 0;
+  font-size: var(--size-title);
+  color:rgb(155, 1, 1);
+  font-family: var(--font-title);
+  font-weight: 800;
+}
+
+
+h3{
+  margin: 0;
+  font-weight: 800;
+  font-family: var(--font-title);
+  font-size: clamp(.9rem, calc(.8rem + 1vw), 2rem);
+}
+

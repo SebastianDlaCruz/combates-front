@@ -1,0 +1,35 @@
+@let activeLocal = active();
+
+<aside [class.active]="activeLocal">
+  <button (click)="onCloseNav()">
+    <ng-icon [svg]="xIcon"></ng-icon>
+  </button>
+  <nav>
+    <menu>
+      <dl>
+
+        <dt>Evento</dt>
+        <dd><a routerLink="/admin/start-date">Establecer fecha</a></dd>
+
+        <dt>Peleas</dt>
+        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
+        <dd><a routerLink="/admin/view-clashes">Ver</a></dd>
+
+        <dt>Boxeador</dt>
+        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
+        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+
+        <dt>Entrenadores</dt>
+        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
+        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+
+        <dt>Escuelas</dt>
+        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
+        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+
+      </dl>
+    </menu>
+
+  </nav>
+
+</aside>

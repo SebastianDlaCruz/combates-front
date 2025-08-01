@@ -1,0 +1,22 @@
+<form>
+
+
+  <app-custom-input label="Numero de pelea" ref="number" [controlForm]="form.controls['number']" type="number"
+    formControlName="number" class="number" />
+
+  <app-custom-select label="Tipo de pelea" [options]="[]" labelOption="label" valueOption="value"
+    formControlName="1id_type_clashes" />
+
+  <app-custom-input label="Rounds" ref="rounds" [controlForm]="form.controls['rounds']" type="number"
+    formControlName="rounds" />
+
+
+  <app-custom-select label="Tipo Categoría" id="category" [options]="[]" labelOption="label" valueOption="value"
+    formControlName="id_category" />
+
+
+  <app-custom-select label="Estado" id="state" [options]="[]" labelOption="label" valueOption="value"
+    formControlName="id_state" />
+
+  <button>Crear enfrentamiento</button>
+</form>

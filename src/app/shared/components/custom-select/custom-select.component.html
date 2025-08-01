@@ -1,0 +1,26 @@
+@let labelLocal = label();
+@let optionLocal = options();
+@let labelOptionLocal = labelOption();
+@let valueOptionLocal = valueOption();
+
+<div class="container-select" [class.container-select-visible]="isOpen">
+
+  <p>{{labelLocal}}</p>
+
+  <div class="container-input" (click)="toggleDropdown()">
+    <span>{{nameOption}}</span>
+    <ng-icon [svg]="iconArrowDown" class="icon"></ng-icon>
+  </div>
+
+  <ul class="list-option" [class.list-option-active]="isOpen">
+    @for (option of optionLocal ; track $index) {
+    <li>
+      <button type="button" (click)="selectOption(option[valueOptionLocal],option[labelOptionLocal])" class="option">
+        {{option[labelOptionLocal]}}
+      </button>
+    </li>
+    }
+  </ul>
+
+
+</div>

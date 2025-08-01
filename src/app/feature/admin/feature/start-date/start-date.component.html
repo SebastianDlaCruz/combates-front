@@ -1,0 +1,9 @@
+<main>
+  <h1>Establecer fecha del evento</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!--  <app-custom-input [config]="startDateConfig" /> -->
+    <app-custom-input label="Fecha del evento" ref="endDate" [controlForm]="form.controls['endDate']"
+      type="datetime-local" />
+    <button class="button">Establecer</button>
+  </form>
+</main>

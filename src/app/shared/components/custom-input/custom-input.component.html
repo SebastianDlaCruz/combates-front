@@ -1,0 +1,47 @@
+@let typeLocal = type();
+@let placeholderLocal = placeholder();
+@let controlFormLocal = controlForm();
+@let labelLocal = label();
+@let refLocal = ref();
+@let validatorsLocal = validators();
+
+<div>
+
+  <label [for]="refLocal">{{labelLocal}}</label>
+  <input [type]="!visiblePassword() ? typeLocal :'text'" [name]="refLocal" [placeholder]="placeholderLocal ??''"
+    [class.invalid-input]="controlFormLocal.invalid && controlFormLocal.touched" [formControl]="controlFormLocal" />
+
+  @if(controlFormLocal.invalid && controlFormLocal.touched ){
+  <small class="error">El campo es requerido</small>
+  }
+
+
+  @if(validatorsLocal && validatorsLocal.length > 0){
+
+  @for(validate of validatorsLocal; track validate){
+
+  @if(controlFormLocal.touched && controlFormLocal.hasError(validate.valid)){
+  <small class="error">{{validate.message}}</small>
+  }
+
+  }
+
+  }
+
+
+
+  @if(typeLocal === 'password'){
+
+  @if(!visiblePassword()){
+  <button type="button" class="icon" (click)="onVisibilityToggle()">
+    <ng-icon [svg]="iconEyeOff"></ng-icon>
+  </button>
+  }@else{
+  <button type="button" class="icon" (click)="onVisibilityToggle()">
+    <ng-icon [svg]="iconEyed"></ng-icon>
+  </button>
+  }
+
+  }
+
+</div>

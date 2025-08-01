@@ -1,0 +1,17 @@
+img{
+  position: absolute;
+  inset:0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  filter: brightness(0.1);
+  transition: opacity 1s ease-out , visibility 1s ease-out;
+  z-index: -1;
+}
+
+.img-active{
+  opacity: 1;
+  visibility: visible;
+}
