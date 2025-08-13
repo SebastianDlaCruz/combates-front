@@ -1,0 +1,38 @@
+menu{
+  position: absolute;
+  inset-inline-end: 7%;
+  display: flex;
+  flex-direction: column;
+  padding-block: 1em;
+  gap: 14px;
+  background-color: rgb(56, 56, 56);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  & li button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     width: 167px;
+    padding: .7em;
+    color: var(--color-white);
+
+    &:hover{
+      background-color: rgba(10, 10, 10, 0.59);
+    }
+  }
+}
+
+
+.menu-active{
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (min-width: 960px) {
+  menu,button{
+    display: none;
+  }
+
+}

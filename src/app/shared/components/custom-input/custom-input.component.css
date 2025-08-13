@@ -35,7 +35,7 @@ input{
 
   &:focus{
     border: none;
-    outline: 3px solid rgb(122, 2, 58);
+    outline: 3px solid rgb(0, 60, 109);
   }
 
   &.invalid-input{

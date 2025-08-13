@@ -1,0 +1,23 @@
+<!-- @let boxerLocal = boxer(); -->
+
+<li>
+
+  <div class="container-info">
+    <strong>Sebastian de la cruz</strong>
+    <b>/</b>
+    <strong>Peso: 63.5kg</strong>
+    <b>/</b>
+    <strong>Coach : Tomas Rojas</strong>
+  </div>
+
+  <app-menu-vertical [items]="menuItems" />
+
+  <div class="container-buttons">
+    <button class="edit-element">
+      <ng-icon [svg]="editIcon"></ng-icon>
+    </button>
+    <button class="trash-element">
+      <ng-icon [svg]="trashIcon"></ng-icon>
+    </button>
+  </div>
+</li>

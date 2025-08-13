@@ -1,0 +1,13 @@
+h1{
+  font-family: var(--font-title);
+  padding-inline: var(--padding-inline);
+}
+
+main{
+  padding-inline: var(--padding-inline);
+}
+
+.create{
+  width: 100%;
+  margin-top: 2rem;
+}

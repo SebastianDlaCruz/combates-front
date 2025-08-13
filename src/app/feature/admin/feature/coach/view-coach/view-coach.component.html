@@ -1,0 +1,12 @@
+<h1>Entrenadores</h1>
+
+<main>
+  <ul>
+    @for(coach of coaches$ | async; track coach.id){
+    <app-item-coach [coach]="coach" (deleteCoach)="onDelete($event)" />
+    }
+
+  </ul>
+</main>
+
+<app-toast />

@@ -1,0 +1,13 @@
+@let titleLocal = title();
+@let paragraphLocal = paragraph();
+
+<dialog #dialog>
+
+  <h3>{{titleLocal}}</h3>
+
+  <p>{{paragraphLocal}}</p>
+
+  <button class="cancel" type="button" (click)="close()">Cancelar</button>
+  <button class="confirm" type="button" (click)="confirm.emit()">Confirmar</button>
+
+</dialog>

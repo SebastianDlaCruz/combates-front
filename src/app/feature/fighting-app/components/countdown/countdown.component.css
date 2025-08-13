@@ -13,8 +13,8 @@
 }
 
 .container-countdown-hidden{
-  opacity: 0;
-  visibility: hidden;
+
+  display: none;
 }
 
 .container-regressive p , .container-regressive strong{
@@ -23,8 +23,9 @@
 
 
 h1{
+  --size-title-countdown: clamp(2rem,calc(1.3rem + 6vw),6rem);
   margin: 0;
-  font-size: var(--size-title);
+  font-size: var(--size-title-countdown);
   color:rgb(155, 1, 1);
   font-family: var(--font-title);
   font-weight: 800;

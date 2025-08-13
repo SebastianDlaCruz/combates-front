@@ -1,0 +1,22 @@
+<h1>
+  Escuelas
+</h1>
+
+<main>
+  @if (schools$ | async; as schools) {
+  <ul>
+    @for (item of schools; track $index) {
+
+    <app-item-school [school]="item" (deleteElement)="onDelete($event)" />
+
+    }
+
+  </ul>
+  }
+
+  <ul>
+
+  </ul>
+</main>
+
+<app-toast />

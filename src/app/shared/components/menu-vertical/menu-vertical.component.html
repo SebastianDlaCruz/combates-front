@@ -1,0 +1,23 @@
+@let itemsLocal = items();
+@let activeLocal = active();
+
+
+<button (click)="onActiveNav()" (blur)="onCloseNav()" class="hover-button-radius">
+  <ng-icon [svg]="iconMoreVertical"></ng-icon>
+</button>
+
+
+<menu [class.menu-active]="activeLocal">
+
+  @for (item of itemsLocal; track $index) {
+
+  <li>
+    <button (click)="item.action()">
+      <span>{{item.label}}</span>
+      <ng-icon [svg]="item.icon"></ng-icon>
+    </button>
+  </li>
+
+  }
+
+</menu>

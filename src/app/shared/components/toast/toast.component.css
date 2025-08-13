@@ -1,0 +1,42 @@
+section{
+  position: fixed;
+  top: 3%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  height: 95px;
+  width: 400px;
+  border-radius: 4px;
+  z-index: 999;
+  
+  & header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & h3{
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+}
+
+.success{
+  background-color: #25b800b7;
+  
+}
+
+.warding{
+  background-color: rgba(235, 154, 3, 0.637);
+}
+
+.error{
+  background-color: rgba(211, 2, 2, 0.637);
+}
+
+
+.icon{
+  color:var(--white);
+}

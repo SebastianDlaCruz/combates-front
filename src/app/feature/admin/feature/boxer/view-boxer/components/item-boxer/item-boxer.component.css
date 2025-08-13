@@ -1,0 +1,30 @@
+li{
+  display: flex;
+  justify-content: space-between;
+  padding-block: 12px;
+  border-bottom: 1px solid #5e5e5e;
+}
+
+
+.container-info{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+
+  & b{
+    color:#c7022c;
+
+  }
+}
+
+.container-buttons{
+  display: none;
+}
+
+
+@media screen and (min-width: 960px) {
+  .container-buttons{
+    display: block;
+  }
+}

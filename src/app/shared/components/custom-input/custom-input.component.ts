@@ -56,7 +56,7 @@ export class CustomInputComponent implements ControlValueAccessor {
 
 
   writeValue(value: any): void {
-    this.controlForm().setValue(value, { emitEvent: true })
+    this.value = value
   }
 
   registerOnChange(fn: (value: any) => void): void {

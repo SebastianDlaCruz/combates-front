@@ -1,7 +1,18 @@
+h1{
+  padding-inline: var(--padding-inline);
+  font-size: 2.7rem;
+}
+
 form{
   display:grid;
   grid-template-areas:
-  "number number";
+  "number"
+  "type-of-fight"
+  "rounds"
+  "type-category"
+  "state"
+  "create";
+  grid-template-columns: 1fr;
   width: 100vw;
   gap: 1rem;
   align-items: center;
@@ -11,4 +22,36 @@ form{
 
 .number{
   grid-area: number;
+}
+
+
+.type-of-fight{
+  grid-area: type-of-fight;
+}
+
+.rounds{
+  grid-area: rounds;
+}
+
+.type-category{
+  grid-area: type-category;
+}
+
+.state{
+  grid-area: state;
+}
+
+.create{
+  grid-area: create;
+}
+
+@media (min-width: 920px) {
+  form {
+    grid-template-areas:
+    "number number"
+    "type-of-fight rounds"
+    "type-category state"
+     ". create";
+  grid-template-columns: 1fr 1fr;
+  }
 }

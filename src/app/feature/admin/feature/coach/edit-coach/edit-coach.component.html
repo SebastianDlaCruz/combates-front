@@ -1,0 +1,46 @@
+<h1>
+  Entrenador Boxer
+</h1>
+
+<main>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <app-custom-input label="Nombre" ref="name" [controlForm]="form.controls['name']" type="text"
+      formControlName="name">
+
+      @if(getError('name','required')){
+
+      <app-message-error-input message="El nombre es requerido" />
+      }
+
+      @if(getError('name','minlength')){
+
+      <app-message-error-input message="Mínimo 8 caracteres" />
+      }
+
+      @if(getError('name','maxlength')){
+
+      <app-message-error-input message="Máximo 30 caracteres" />
+      }
+
+    </app-custom-input>
+
+    <app-custom-select label="Escuela" ref="school" [options]="schools" labelOption="name" valueOption="id"
+      formControlName="id_school" class="school" [controlForm]="form.controls['id_school']">
+
+      @if(getError('id_school','required')){
+
+      <app-message-error-input message="La escuela es requerida" />
+      }
+    </app-custom-select>
+
+
+    <button class="button create">Editar Entrenador</button>
+
+  </form>
+
+</main>
+
+
+<app-toast />

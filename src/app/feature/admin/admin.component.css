@@ -6,7 +6,3 @@ header{
   padding-inline: var(--padding-inline);
   border-bottom: 1px solid #cecece7c;
 }
-
-div{
-  display: flex;
-}

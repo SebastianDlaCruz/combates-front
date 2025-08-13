@@ -11,5 +11,56 @@
     color: var(--primary-color);
     background-color:var(--background);
   }
+
+  &:disabled{
+    background-color: #0c0b0ba4;
+    color: #5757579a;
+  }
 }
 
+
+.textarea{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  & textarea{
+    height: 126px;
+    resize: none;
+    background-color: #b5b5b5;
+
+
+  &:focus{
+    border: none;
+    outline: 3px solid rgb(122, 2, 58);
+  }
+
+  }
+}
+
+.hover-button-radius{
+  --size: 40px;
+    display: grid;
+    place-items: center;
+    height: var(--size);
+    min-width: var(--size);
+    border-radius: 50%;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover{
+    background-color: rgba(61, 61, 61, 0.59);
+  }
+}
+
+
+.add-element:hover > * {
+  color: #1d8104;
+}
+
+
+.edit-element:hover > *{
+  color: rgb(255, 177, 10);
+}
+
+.trash-element:hover > *{
+  color: rgb(197, 2, 2);
+}

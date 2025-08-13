@@ -1,7 +1,9 @@
 .container-select{
   position:relative;
   overflow: hidden;
+
 }
+
 
 .container-select-visible{
   overflow: visible;
@@ -16,6 +18,15 @@
   border: 0.6px solid #282828;
   border-radius: 2px;
   background-color: #b5b5b5;
+
+  &:focus{
+    border: none;
+    outline: 3px solid rgb(0, 60, 109);
+  }
+}
+
+.container-select-invalid{
+  border: 2px solid var(--invalid);
 }
 
 
@@ -31,19 +42,22 @@
 .list-option{
   position: absolute;
   inset-inline: 0;
-  margin: 0;
   inset-block-start: 0;
-  /* transition: transform 1s ease; */
-  transform: translateY(0);
+  max-height: 120px;
+  margin: 0;
   visibility: hidden;
+  transform: translateY(0);
   background-color: #b5b5b5;
   color: #282828;
+  overflow-y: scroll;
 }
 
 
 .list-option-active{
+
+  border: 0.6px solid #282828;
   visibility: visible;
-  transform: translateY(79%);
+  transform: translateY(5.7rem);
 
 }
 
@@ -51,8 +65,10 @@
 .option{
  height: 59px;
  width: 100%;
+ padding-inline: 7px;
  line-height: 59px;
  text-align: left;
+
  &:hover{
   background-color: #434141a1;
  }

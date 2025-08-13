@@ -9,6 +9,9 @@ aside{
   z-index: 4;
 }
 
+menu{
+  padding-inline-start: 18px;
+}
 .active{
   transform: translateX(0);
 }
@@ -18,7 +21,7 @@ a{
   color: #c7022c;
   transition: color 1s ease-in-out;
   &:hover{
-    color: #79001a;
+    color: #fa6c8a;
   }
 }
 

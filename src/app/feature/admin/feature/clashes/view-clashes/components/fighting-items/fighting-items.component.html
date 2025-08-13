@@ -1,0 +1,39 @@
+<li>
+
+  <b>
+    Pelea 1
+  </b>
+
+  <div class="container-info">
+
+    <strong>
+      Sebastian de la cruz
+      <span>vs</span>
+      Juan Morales
+    </strong>
+
+
+    <app-menu-vertical [items]="menuItems" />
+
+    <div class="container-buttons">
+
+      <button class="add-element" title="Agregar boxeador">
+        <ng-icon [svg]="userIcon"></ng-icon>
+      </button>
+
+      <button class="edit-boxer" title="Editar boxeador">
+        <ng-icon [svg]="featerUsersIcon"></ng-icon>
+      </button>
+
+      <button class="edit-element" title="Editar pelea">
+        <ng-icon [svg]="editIcon"></ng-icon>
+      </button>
+
+      <button class="trash-element" title="Eliminar pelea">
+        <ng-icon [svg]="trashIcon"></ng-icon>
+      </button>
+    </div>
+
+  </div>
+
+</li>

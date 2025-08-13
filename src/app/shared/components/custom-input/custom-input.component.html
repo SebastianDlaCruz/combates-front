@@ -11,22 +11,7 @@
   <input [type]="!visiblePassword() ? typeLocal :'text'" [name]="refLocal" [placeholder]="placeholderLocal ??''"
     [class.invalid-input]="controlFormLocal.invalid && controlFormLocal.touched" [formControl]="controlFormLocal" />
 
-  @if(controlFormLocal.invalid && controlFormLocal.touched ){
-  <small class="error">El campo es requerido</small>
-  }
-
-
-  @if(validatorsLocal && validatorsLocal.length > 0){
-
-  @for(validate of validatorsLocal; track validate){
-
-  @if(controlFormLocal.touched && controlFormLocal.hasError(validate.valid)){
-  <small class="error">{{validate.message}}</small>
-  }
-
-  }
-
-  }
+  <ng-content></ng-content>
 
 
 

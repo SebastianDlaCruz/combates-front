@@ -1,9 +1,10 @@
 @let activeLocal = active();
 
 <aside [class.active]="activeLocal">
-  <button (click)="onCloseNav()">
+  <button (click)="onCloseNav()" class="hover-button-radius">
     <ng-icon [svg]="xIcon"></ng-icon>
   </button>
+
   <nav>
     <menu>
       <dl>
@@ -15,17 +16,17 @@
         <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
         <dd><a routerLink="/admin/view-clashes">Ver</a></dd>
 
-        <dt>Boxeador</dt>
-        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
-        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+        <dt>Boxeadores</dt>
+        <dd><a routerLink="/admin/create-boxer">Crear</a></dd>
+        <dd><a routerLink="/admin/view-boxer">Ver</a></dd>
 
         <dt>Entrenadores</dt>
-        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
-        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+        <dd><a routerLink="/admin/create-coach">Crear</a></dd>
+        <dd><a routerLink="/admin/view-coach">Ver</a></dd>
 
         <dt>Escuelas</dt>
-        <dd><a routerLink="/admin/create-clashes">Crear</a></dd>
-        <dd><a routerLink="/admin/create-clashes">Ver</a></dd>
+        <dd><a routerLink="/admin/create-school">Crear</a></dd>
+        <dd><a routerLink="/admin/view-school">Ver</a></dd>
 
       </dl>
     </menu>

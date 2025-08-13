@@ -2,12 +2,16 @@
 @let optionLocal = options();
 @let labelOptionLocal = labelOption();
 @let valueOptionLocal = valueOption();
+@let controlFormLocal = controlForm();
+
 
 <div class="container-select" [class.container-select-visible]="isOpen">
 
   <p>{{labelLocal}}</p>
 
-  <div class="container-input" (click)="toggleDropdown()">
+  <div class="container-input" (click)="toggleDropdown()"
+    [class.container-select-invalid]="controlFormLocal.invalid && controlFormLocal.touched">
+
     <span>{{nameOption}}</span>
     <ng-icon [svg]="iconArrowDown" class="icon"></ng-icon>
   </div>
@@ -22,5 +26,6 @@
     }
   </ul>
 
+  <ng-content></ng-content>
 
 </div>

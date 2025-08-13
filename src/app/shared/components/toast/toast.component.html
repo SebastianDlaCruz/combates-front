@@ -1,0 +1,43 @@
+@if(visible$ | async; as visible){
+
+@if (data$ | async; as data) {
+
+<section [class]="{
+  'success' : data.status === status.SUCCESS,
+   'warding': data.status === status.WARNING,
+   'error':data.status === status.ERROR
+}">
+
+
+
+  <header>
+
+    @switch (data.status) {
+    @case(status.SUCCESS){
+    <ng-icon [svg]="checkIcon" class="icon" />
+    }
+
+    @case(status.WARNING){
+    <ng-icon [svg]="warningIcon" class="icon" />
+    }
+
+    @case(status.ERROR){
+    <ng-icon [svg]="xIcon" class="icon" />
+    }
+
+    }
+
+    <h3>{{data.title}}</h3>
+
+
+
+  </header>
+
+  <p>{{ data.paragraph }}</p>
+
+</section>
+
+}
+
+
+}

@@ -1,0 +1,28 @@
+<h1>Editar Escuela</h1>
+
+<main>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <app-custom-input label="Nombre" ref="name" [controlForm]="form.controls['name']" type="text"
+      formControlName="name">
+
+      @if(getHasError('required') && form.get('name')?.touched){
+      <app-message-error-input message="El nombre es requerido" />
+      }
+
+      @if(getHasError('minlength')){
+      <app-message-error-input message="Mínimo 8 caracteres" />
+      }
+
+      @if(getHasError('maxlength')){
+      <app-message-error-input message="Máximo 30 caracteres" />
+      }
+
+
+    </app-custom-input>
+
+    <button class="button" [disabled]="isDisable">Editar</button>
+
+  </form>
+</main>
+<app-toast />

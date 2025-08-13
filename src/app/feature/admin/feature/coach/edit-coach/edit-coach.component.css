@@ -1,0 +1,8 @@
+h1{
+
+  padding-inline: var(--padding-inline);
+}
+
+main{
+  padding-inline: var(--padding-inline);
+}

@@ -1,5 +1,5 @@
 <header>
-  <button (click)="onActiveNav()">
+  <button (click)="onActiveNav()" class="hover-button-radius">
     <ng-icon [svg]="featherMoreVerticalIcon"></ng-icon>
   </button>
   <div>
@@ -7,7 +7,6 @@
   </div>
 </header>
 
-<div>
-  <app-nav-bar-admin [active]="activeNav()" (close)="onCloseNav()" />
-  <router-outlet></router-outlet>
-</div>
+
+<app-nav-bar-admin [active]="activeNav()" (close)="onCloseNav()" />
+<router-outlet></router-outlet>

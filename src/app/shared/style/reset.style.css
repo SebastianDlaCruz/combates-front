@@ -30,3 +30,18 @@ ul{
   padding:0;
   list-style-type: none;
 }
+
+li{
+  list-style-type: none;
+}
+
+
+menu{
+  padding:0;
+}
+
+
+h1{
+  font-size: var(--size-title);
+  font-family: var(--font-title);
+}
