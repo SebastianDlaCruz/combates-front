@@ -44,7 +44,7 @@ export class CustomInputComponent implements ControlValueAccessor {
   controlForm = input.required<FormControl<any>>()
   validators = input<CustomInputValidators[]>();
 
-  value: any = "";
+  value: any;
 
   iconEyed = featherEye;
   iconEyeOff = featherEyeOff;
@@ -76,7 +76,6 @@ export class CustomInputComponent implements ControlValueAccessor {
     this.value = value;
     this.onChange(value);
     this.onTouched();
-
   }
 
 

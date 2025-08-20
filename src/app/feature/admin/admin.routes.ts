@@ -24,6 +24,11 @@ export const routes: Routes = [{
       path: 'view-boxer',
       loadComponent: () => import('./feature/boxer/view-boxer/view-boxer.component').then(m => m.ViewBoxerComponent)
     }, {
+
+      path: 'edit-boxer/:id',
+      loadComponent: () => import('./feature/boxer/edit-boxer/edit-boxer.component').then(m => m.EditBoxerComponent)
+    },
+    {
       path: 'create-coach',
       loadComponent: () => import('./feature/coach/create-coach/create-coach.component').then(m => m.CreateCoachComponent)
     }, {

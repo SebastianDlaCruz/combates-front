@@ -20,6 +20,7 @@ form{
   "state"
   "fights"
   "gender"
+  "age"
   "create"
   ;
   grid-template-columns: 1fr;
@@ -66,6 +67,11 @@ form{
   grid-area: gender;
 }
 
+
+.age{
+  grid-area: age;
+}
+
 @media screen and (min-width: 960px) {
   form{
     grid-template-areas:
@@ -75,7 +81,7 @@ form{
     "details details"
     "state fights"
     "gender gender "
-    ". create";
+    "age create";
     grid-template-columns: 1fr 1fr;
   }
 

@@ -1,23 +1,35 @@
-<!-- @let boxerLocal = boxer(); -->
+@let boxerLocal = boxer();
+@let coachLocal = coach$();
+@let schoolLocal = school$();
 
 <li>
 
   <div class="container-info">
-    <strong>Sebastian de la cruz</strong>
+    <strong>{{boxerLocal.name}}</strong>
     <b>/</b>
-    <strong>Peso: 63.5kg</strong>
+    <strong>Peso: {{boxerLocal.weight}}kg</strong>
     <b>/</b>
-    <strong>Coach : Tomas Rojas</strong>
+    @if(coachLocal | async; as coach){
+    <strong>Coach : {{coach.data.name}}</strong>
+    }
+    <b>/</b>
+    @if(schoolLocal | async; as school){
+    <strong>Escuela: {{school.data.name}}</strong>
+    }
+
   </div>
 
   <app-menu-vertical [items]="menuItems" />
 
   <div class="container-buttons">
-    <button class="edit-element">
+    <button class="edit-element" (click)="onEdit()">
       <ng-icon [svg]="editIcon"></ng-icon>
     </button>
-    <button class="trash-element">
+    <button class="trash-element" (click)="onOpenModal()">
       <ng-icon [svg]="trashIcon"></ng-icon>
     </button>
   </div>
 </li>
+
+<app-confirm-modal #confirmModal title="Eliminar boxeador" paragraph="¿Desea eliminar {{boxerLocal.name}}?"
+  (confirm)="onDelete(boxerLocal.id|| '')" />

@@ -1,6 +1,16 @@
 <h1>Boxeadores</h1>
 <main>
   <ul>
-    <app-item-boxer />
+
+    @if(boxers$| async; as boxers){
+
+    @for (item of boxers; track $index) {
+    <app-item-boxer [boxer]="item" (deleteBoxer)="onDelete($event)" />
+    }
+
+    }
+
   </ul>
 </main>
+
+<app-toast />

@@ -3,13 +3,14 @@
 @let controlFormLocal = controlForm();
 @let labelLocal = label();
 @let refLocal = ref();
-@let validatorsLocal = validators();
+
 
 <div>
 
   <label [for]="refLocal">{{labelLocal}}</label>
   <input [type]="!visiblePassword() ? typeLocal :'text'" [name]="refLocal" [placeholder]="placeholderLocal ??''"
-    [class.invalid-input]="controlFormLocal.invalid && controlFormLocal.touched" [formControl]="controlFormLocal" />
+    [class.invalid-input]="controlFormLocal.invalid && controlFormLocal.touched" [formControl]="controlFormLocal"
+    (change)="onInputChange($event)" />
 
   <ng-content></ng-content>
 

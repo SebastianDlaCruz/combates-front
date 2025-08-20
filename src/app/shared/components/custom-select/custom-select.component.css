@@ -36,6 +36,7 @@
   inset-block: 32%;
   border-radius: 2px;
   background-color: #282828;
+
 }
 
 
@@ -50,6 +51,7 @@
   background-color: #b5b5b5;
   color: #282828;
   overflow-y: scroll;
+   z-index: 2;
 }
 
 
