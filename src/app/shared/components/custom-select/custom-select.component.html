@@ -17,6 +17,7 @@
   </div>
 
   <ul class="list-option" [class.list-option-active]="isOpen">
+
     @for (option of optionLocal ; track $index) {
     <li>
       <button type="button" (click)="selectOption(option[valueOptionLocal],option[labelOptionLocal])" class="option">
@@ -24,6 +25,7 @@
       </button>
     </li>
     }
+
   </ul>
 
   <ng-content></ng-content>

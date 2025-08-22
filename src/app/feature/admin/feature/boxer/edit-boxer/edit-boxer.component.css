@@ -1,0 +1,88 @@
+h1{
+  padding-inline: var(--padding-inline);
+  font-size: 2.7rem;
+
+}
+
+main{
+ padding-inline: var(--padding-inline);
+}
+
+form{
+  display: grid;
+  grid-template-areas:
+  "name"
+  "school"
+  "category"
+  "weight"
+  "coach"
+  "details"
+  "state"
+  "fights"
+  "gender"
+  "age"
+  "create"
+  ;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.textarea-grid{
+  grid-area: details;
+}
+
+.create{
+  grid-area: create;
+}
+
+.name{
+  grid-area: name;
+}
+
+.school{
+  grid-area: school;
+}
+
+.category{
+  grid-area: category;
+}
+
+.weight{
+  grid-area: weight;
+}
+
+.coach{
+  grid-area: coach;
+}
+
+.state{
+  grid-area: state;
+}
+
+.fights{
+  grid-area: fights;
+}
+
+.gender{
+  grid-area: gender;
+}
+
+
+.age{
+  grid-area: age;
+}
+
+@media screen and (min-width: 960px) {
+  form{
+    grid-template-areas:
+    "name name"
+    "school category"
+    "weight coach"
+    "details details"
+    "state fights"
+    "gender gender "
+    "age create";
+    grid-template-columns: 1fr 1fr;
+  }
+
+}

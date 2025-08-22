@@ -42,8 +42,9 @@ export class CustomSelectComponent implements ControlValueAccessor, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
 
     if (this.options().length > 0 && this.value) {
-      this.select = this.options().find(option => option.id === this.value);
+      this.select = this.options().find(option => option[this.valueOption()] === this.value);
       this.nameOption = this.select?.[this.labelOption()];
+
     }
   }
 
@@ -61,7 +62,8 @@ export class CustomSelectComponent implements ControlValueAccessor, OnChanges {
 
   writeValue(obj: any): void {
     this.value = obj;
-    this.select = this.options().find(option => option.value === obj);
+    this.select = this.options().find(option => option[this.valueOption()] === this.value);
+
   }
 
   registerOnChange(fn: any): void {

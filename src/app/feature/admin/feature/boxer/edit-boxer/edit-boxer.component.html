@@ -1,1 +1,71 @@
-<p>edit-boxer works!</p>
+<main>
+  <h1>Editar boxeador</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <app-custom-input label="Nombre" ref="name" [controlForm]="form.controls['name']" type="text" formControlName="name"
+      class="name">
+      @if(getError('name','required')){
+      <app-message-error-input message="Campo requerido" />
+      }
+    </app-custom-input>
+
+    <app-custom-select label="Escuela" ref="school" [options]="data.schools" labelOption="name" valueOption="id"
+      formControlName="id_school" class="school" [controlForm]="form.controls['id_school']" />
+
+    <app-custom-select label="Categoría" ref="id_category" [options]="data.categories" labelOption="name"
+      valueOption="id" formControlName="id_category" class="category" [controlForm]="form.controls['id_category']" />
+
+
+    <app-custom-input label="Peso" ref="weight" [controlForm]="form.controls['weight']" type="number"
+      formControlName="weight" class="weight">
+
+      @if(getError('weight','required')){
+      <app-message-error-input message="Campo requerido" />
+      }
+
+      @if(getError('weight','negativeNumber')){
+      <app-message-error-input message="No se permite números negativos" />
+      }
+    </app-custom-input>
+
+
+    <app-custom-select label="Coach" ref="id_coach" [options]="data.couches" labelOption="name" valueOption="id"
+      formControlName="id_coach" class="coach" [controlForm]="form.controls['id_coach']" />
+
+    <div class="textarea textarea-grid">
+      <label for="details">Detalles</label>
+      <textarea name="details" id="details" formControlName="details"></textarea>
+
+    </div>
+
+    <app-custom-select label="Estado" ref="id_state" [options]="data.stateBoxer" labelOption="name" valueOption="id"
+      formControlName="id_state" class="state" [controlForm]="form.controls['id_state']" />
+
+
+    <app-custom-input label="Peleas" ref="fights" [controlForm]="form.controls['fights']" type="number"
+      formControlName="fights" class="fights" [controlForm]="form.controls['fights']">
+
+      @if(getError('fights','negativeNumber')){
+      <app-message-error-input message="No se permite números negativos" />
+      }
+
+    </app-custom-input>
+
+    <app-custom-input label="Edad" ref="age" [controlForm]="form.controls['age']" type="number" formControlName="age"
+      class="age" [controlForm]="form.controls['age']">
+      @if(getError('age','negativeNumber')){
+      <app-message-error-input message="No se permite números negativos" />
+      }</app-custom-input>
+
+
+    <app-custom-select label="Genero" ref="gender" [options]="gender" labelOption="name" valueOption="name"
+      formControlName="gender" class="gender" [controlForm]="form.controls['gender']" />
+
+    <button class="button create">Editar Boxeador</button>
+
+  </form>
+
+</main>
+
+<app-toast />

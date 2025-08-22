@@ -26,4 +26,10 @@ export class BoxerHttpService {
   update(uuid: string, boxer: Boxer) {
     return this.http.patch<ResponseState>(`/${this.URL}/${uuid}`, boxer);
   }
+
+
+  getFindOne(uuid: string) {
+    return this.http.get<ResponseStateData<Boxer>>(`/${this.URL}/${uuid}`);
+  }
+
 }

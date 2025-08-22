@@ -1,4 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BoxerHttpService } from '@core/http/boxer-http/boxer-http.service';
 import { Boxer } from '@core/models/boxer.model';
@@ -15,13 +16,12 @@ import { negativeNumberValidator } from '@shared/utils/negativeNumberVlidator/ne
 
 @Component({
   selector: 'app-create-boxer',
-  imports: [CustomInputComponent, CustomSelectComponent, ReactiveFormsModule, ToastComponent, MessageErrorInputComponent],
+  imports: [CustomInputComponent, CustomSelectComponent, ReactiveFormsModule, ToastComponent, MessageErrorInputComponent, AsyncPipe],
   templateUrl: './create-boxer.component.html',
   styleUrl: './create-boxer.component.css',
   providers: [ToastService]
 })
-export class CreateBoxerComponent implements OnInit {
-
+export class CreateBoxerComponent implements OnInit, OnDestroy {
 
   private boxerHttp = inject(BoxerHttpService);
   private boxerData = inject(BoxerRelatedDataService);
@@ -38,7 +38,8 @@ export class CreateBoxerComponent implements OnInit {
     }, {
       name: 'Femenino'
     }
-  ]
+  ];
+
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     id_school: new FormControl(0, [Validators.required]),
@@ -54,20 +55,15 @@ export class CreateBoxerComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    this.boxerData.getData().subscribe({
-      next: (res) => {
-        this.schools = res.schools;
-        this.categories = res.categories;
-        this.couches = res.couches;
-        this.stateBoxer = res.stateBoxer
-      }
-    })
+    this.boxerData.getData();
   }
 
 
+  get data() {
+    return this.boxerData.data;
+  }
+
   getError(name: string, error: string) {
-    console.log(this.form.get(name)?.errors)
     return this.form.get(name)?.hasError(error) && this.form.get(name)?.touched;
   }
 
@@ -95,5 +91,13 @@ export class CreateBoxerComponent implements OnInit {
       );
     }
   }
+
+
+  ngOnDestroy(): void {
+    this.boxerData.onDestroy();
+  }
+
+
+
 
 }

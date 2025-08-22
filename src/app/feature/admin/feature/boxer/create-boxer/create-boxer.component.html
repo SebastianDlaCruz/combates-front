@@ -10,11 +10,11 @@
       }
     </app-custom-input>
 
-    <app-custom-select label="Escuela" ref="school" [options]="schools" labelOption="name" valueOption="id"
+    <app-custom-select label="Escuela" ref="school" [options]="data.schools" labelOption="name" valueOption="id"
       formControlName="id_school" class="school" [controlForm]="form.controls['id_school']" />
 
-    <app-custom-select label="Categoría" ref="id_category" [options]="categories" labelOption="name" valueOption="id"
-      formControlName="id_category" class="category" [controlForm]="form.controls['id_category']" />
+    <app-custom-select label="Categoría" ref="id_category" [options]="data.categories" labelOption="name"
+      valueOption="id" formControlName="id_category" class="category" [controlForm]="form.controls['id_category']" />
 
 
     <app-custom-input label="Peso" ref="weight" [controlForm]="form.controls['weight']" type="number"
@@ -30,7 +30,7 @@
     </app-custom-input>
 
 
-    <app-custom-select label="Coach" ref="id_coach" [options]="couches" labelOption="name" valueOption="id"
+    <app-custom-select label="Coach" ref="id_coach" [options]="data.couches" labelOption="name" valueOption="id"
       formControlName="id_coach" class="coach" [controlForm]="form.controls['id_coach']" />
 
     <div class="textarea textarea-grid">
@@ -39,7 +39,7 @@
 
     </div>
 
-    <app-custom-select label="Estado" ref="id_state" [options]="stateBoxer" labelOption="name" valueOption="id"
+    <app-custom-select label="Estado" ref="id_state" [options]="data.stateBoxer" labelOption="name" valueOption="id"
       formControlName="id_state" class="state" [controlForm]="form.controls['id_state']" />
 
 

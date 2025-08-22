@@ -11,6 +11,7 @@ import { CustomSelectComponent } from '@shared/components/custom-select/custom-s
 })
 export class CreateClashesComponent {
 
+
   form = new FormGroup({
     number: new FormControl(0, [Validators.required]),
     id_type_clashes: new FormControl(0, [Validators.required]),
